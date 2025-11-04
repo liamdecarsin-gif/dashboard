@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Dashboard Démo</title>
+<style>
+body{font-family:Arial,sans-serif;background:#f5f6fa;margin:0;padding:20px;text-align:center;}
+h1{font-size:22px;}
+.box{background:white;border-radius:10px;padding:15px;margin:10px auto;max-width:300px;box-shadow:0 2px 5px rgba(0,0,0,.1);}
+.kpi{font-size:26px;font-weight:bold;}
+button{margin-top:15px;padding:10px 20px;border:none;border-radius:6px;background:#007bff;color:white;}
+</style>
+</head>
+<body>
+<h1>📊 Faux Dashboard</h1>
+<div class="box"><div>Revenus</div><div id="rev" class="kpi">— €</div></div>
+<div class="box"><div>Commandes</div><div id="cmd" class="kpi">—</div></div>
+<div class="box"><div>Panier moyen</div><div id="aov" class="kpi">— €</div></div>
+<button onclick="gen()">🔄 Régénérer</button>
+<script>
+function rand(a,b){return Math.floor(Math.random()*(b-a+1))+a;}
+function fmt(n){return n.toLocaleString('fr-FR');}
+function gen(){
+  const o=rand(80,500);
+  const rev=o*rand(30,120);
+  document.getElementById('rev').innerText=fmt(rev)+' €';
+  document.getElementById('cmd').innerText=fmt(o);
+  document.getElementById('aov').innerText=fmt(Math.round(rev/o))+' €';
+}
+gen();
+</script>
+</body>
+</html>
